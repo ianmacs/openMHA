@@ -3,5 +3,6 @@ git:
   depth: 1
 before_install:
   - sudo apt-get update
-  - sudo apt-get install -y libsndfile1-dev jackd2 portaudio19-dev libjack-jackd2-dev octave-signal liblo-dev ruby-dev libboost-dev swig libboost-system-dev dpkg-dev lsb-release libgsl-dev default-jre-headless
+  - sudo apt-get install -y libsndfile1-dev jackd2 portaudio19-dev libjack-jackd2-dev octave-signal liblo-dev ruby-dev libboost-dev swig libboost-system-dev dpkg-dev lsb-release libgsl-dev
 language: cpp
+jdk: openjdk8
