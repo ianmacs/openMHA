@@ -6,8 +6,7 @@ services:
   - docker
 
 before_install:
-  - docker pull tobiasherzke/docker-jenkins-buildenv:mha_x86_64-linux-gcc-5
+  - docker pull tobiasherzke/docker-jenkins-buildenv:mha_x86_64-linux-gcc-7
 language: cpp
 script:
-  - docker run -v $PWD:/workspace tobiasherzke/docker-jenkins-buildenv:mha_x86_64-linux-gcc-5 make -C /workspace test
-
+  - docker run -v $PWD:/workspace tobiasherzke/docker-jenkins-buildenv:mha_x86_64-linux-gcc-5 make -C /workspace test unit-tests deb
