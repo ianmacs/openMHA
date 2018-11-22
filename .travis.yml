@@ -1,8 +1,13 @@
 dist: xenial
 git:
   depth: 1
+sudo: required
+services:
+  - docker
+
 before_install:
-  - sudo apt-get update
-  - sudo apt-get install -y libsndfile1-dev jackd2 portaudio19-dev libjack-jackd2-dev octave-signal liblo-dev ruby-dev libboost-dev swig libboost-system-dev dpkg-dev lsb-release libgsl-dev
+  - docker pull tobiasherzke/docker-jenkins-buildenv:mha_x86_64-linux-gcc-5
 language: cpp
-jdk: openjdk8
+script:
+  - docker run -v $PWD:/workspace tobiasherzke/docker-jenkins-buildenv:mha_x86_64-linux-gcc-5 make -C /workspace test
+
