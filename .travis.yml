@@ -18,4 +18,4 @@ sudo: required
 #  - docker pull tobiasherzke/docker-jenkins-buildenv:mha_x86_64-linux-gcc-7
 language: cpp
 script:
-  - ls -l /usr/include /usr/local/include; make test unit-tests pkg
+  - brew ls --verbose libsndfile; ls -l /usr/include /usr/local/include; make test unit-tests pkg
