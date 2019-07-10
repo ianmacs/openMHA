@@ -7,6 +7,7 @@ addons:
       - portaudio
       - liblo
       - octave
+      - jack
 # dist: xenial
 git:
   depth: 1
@@ -18,4 +19,4 @@ sudo: required
 #  - docker pull tobiasherzke/docker-jenkins-buildenv:mha_x86_64-linux-gcc-7
 language: cpp
 script:
-  - brew install libsndfile pkgconfig liblo octave; brew ls --verbose libsndfile; ls -l /usr/include /usr/local/include; make test unit-tests pkg
+  - brew install libsndfile pkgconfig liblo octave jack; brew ls --verbose libsndfile; ls -l /usr/include /usr/local/include; make test unit-tests pkg
