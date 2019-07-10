@@ -18,4 +18,4 @@ sudo: required
 #  - docker pull tobiasherzke/docker-jenkins-buildenv:mha_x86_64-linux-gcc-7
 language: cpp
 script:
-  - make -C /workspace test unit-tests pkg
+  - make test unit-tests pkg
