@@ -1,4 +1,5 @@
 os: osx
+osx_image: xcode10.1
 addons:
   homebrew:
     packages:
@@ -19,4 +20,4 @@ sudo: required
 #  - docker pull tobiasherzke/docker-jenkins-buildenv:mha_x86_64-linux-gcc-7
 language: cpp
 script:
-  - brew install libsndfile pkgconfig liblo octave jack; brew ls --verbose libsndfile; ls -l /usr/include /usr/local/include; make test unit-tests pkg
+  - ls -lR /Library/Java/JavaVirtualMachines/; brew install libsndfile pkgconfig liblo octave jack; brew ls --verbose libsndfile; ls -l /usr/include /usr/local/include; make test unit-tests pkg
