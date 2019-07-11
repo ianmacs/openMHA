@@ -20,4 +20,4 @@ sudo: required
 #  - docker pull tobiasherzke/docker-jenkins-buildenv:mha_x86_64-linux-gcc-7
 language: cpp
 script:
-  - brew install libsndfile pkgconfig liblo octave jack; brew tap AdoptOpenJDK/openjdk; brew search /adoptopenjdk/; brew cask install adoptopenjdk11; sudo ln -s adoptopenjdk-11.jdk/ /Library/Java/JavaVirtualMachines/adoptopenjdk-11.0.2.jdk; octave --no-gui --no-window-system --eval "mkoctfile -p ALL_CXXFLAGS; mkoctfile -p CXX; pkg install -forge control signal"; make test unit-tests pkg
+  - brew install libsndfile pkgconfig liblo octave jack; brew tap AdoptOpenJDK/openjdk; brew search /adoptopenjdk/; brew cask install adoptopenjdk11; sudo ln -s adoptopenjdk-11.jdk/ /Library/Java/JavaVirtualMachines/adoptopenjdk-11.0.2.jdk; octave --no-gui --no-window-system --eval "mkoctfile -p ALL_CXXFLAGS; mkoctfile -p CXX; pkg install -forge -verbose control signal"; which g++; g++ -v; make test unit-tests pkg
