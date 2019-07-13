@@ -25,5 +25,6 @@ script:
   - g++ -std=gnu++11 -o /Users/travis/bin/g++ mha/tools/g++.cpp
   - ls -l /Users/travis/bin/
   - octave --no-gui --no-window-system --eval "pkg install -forge -verbose control signal"
+  - octave --no-gui --no-window-system --eval "pkg list"
   - rm /Users/travis/bin/g++
   - make test unit-tests pkg
