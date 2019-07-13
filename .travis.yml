@@ -1,17 +1,5 @@
 os: osx
 osx_image: xcode10.1
-addons:
-  homebrew:
-    packages:
-      - libsndfile
-      - pkgconfig
-      - portaudio
-      - liblo
-      - octave
-      - jack
-    update: true
-    taps: AdoptOpenJDK/openjdk
-    casks: adoptopenjdk11
     
 git:
   depth: 1
@@ -19,12 +7,11 @@ sudo: required
 
 language: cpp
 script:
-  - sudo ln -s adoptopenjdk-11.jdk/ /Library/Java/JavaVirtualMachines/adoptopenjdk-11.0.2.jdk
-  - echo PATH=$PATH
-  - mkdir -p /Users/travis/bin/
-  - g++ -std=gnu++11 -o /Users/travis/bin/g++ mha/tools/g++.cpp
-  - ls -l /Users/travis/bin/
-  - octave --no-gui --no-window-system --eval "pkg install -forge -verbose control signal"
-  - octave --no-gui --no-window-system --eval "pkg list"
-  - rm /Users/travis/bin/g++
+  - curl -O https://github.com/tobiasherzke/travis-buildenv/releases/download/20190713224935-0eef861/openMHA_dependencies_homebrew1.tar.gz
+  - curl -O https://github.com/tobiasherzke/travis-buildenv/releases/download/20190713224935-0eef861/openMHA_dependencies_homebrew2.tar.gz
+  - curl -O https://github.com/tobiasherzke/travis-buildenv/releases/download/20190713224935-0eef861/openMHA_dependencies_homebrew3.tar.gz
+  - sudo tar xzf openMHA_dependencies_homebrew1.tar.gz -C /
+  - sudo tar xzf openMHA_dependencies_homebrew2.tar.gz -C /
+  - sudo tar xzf openMHA_dependencies_homebrew3.tar.gz -C /
+  - rm openMHA_dependencies_homebrew*.tar.gz
   - make test unit-tests pkg
