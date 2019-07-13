@@ -9,15 +9,21 @@ addons:
       - liblo
       - octave
       - jack
-# dist: xenial
+    update: true
+    taps: AdoptOpenJDK/openjdk
+    casks: adoptopenjdk11
+    
 git:
   depth: 1
 sudo: required
-#services:
-#  - docker
 
-#before_install:
-#  - docker pull tobiasherzke/docker-jenkins-buildenv:mha_x86_64-linux-gcc-7
 language: cpp
 script:
-  - brew install libsndfile pkgconfig liblo octave jack; brew tap AdoptOpenJDK/openjdk; brew search /adoptopenjdk/; brew cask install adoptopenjdk11; sudo ln -s adoptopenjdk-11.jdk/ /Library/Java/JavaVirtualMachines/adoptopenjdk-11.0.2.jdk; echo PATH=$PATH; ln -s g++-9 /usr/local/bin/g++; ln -s gcc-9 /usr/local/bin/gcc; date; ln -s g++-9 /usr/local/bin/clang++; ls -l /usr/local/bin; which g++; octave --no-gui --no-window-system --eval "mkoctfile -p ALL_CXXFLAGS; mkoctfile -p CXX; mkoctfile -p LD_CXX; pkg install -forge -verbose control signal"; rm /usr/local/bin/clang++; which g++; g++ -v; make test unit-tests pkg
+  - sudo ln -s adoptopenjdk-11.jdk/ /Library/Java/JavaVirtualMachines/adoptopenjdk-11.0.2.jdk
+  - echo PATH=$PATH
+  - mkdir -p /Users/travis/bin/
+  - g++ -std=gnu++11 -o /Users/travis/bin/g++ mha/tools/g++.cpp
+  - ls -l /Users/travis/bin/
+  - octave --no-gui --no-window-system --eval "pkg install -forge -verbose control signal"
+  - rm /Users/travis/bin/g++
+  - make test unit-tests pkg
