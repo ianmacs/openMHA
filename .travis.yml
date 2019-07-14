@@ -7,9 +7,9 @@ sudo: required
 
 language: cpp
 script:
-  - curl -O https://github.com/tobiasherzke/travis-buildenv/releases/download/20190713224935-0eef861/openMHA_dependencies_homebrew1.tar.gz
-  - curl -O https://github.com/tobiasherzke/travis-buildenv/releases/download/20190713224935-0eef861/openMHA_dependencies_homebrew2.tar.gz
-  - curl -O https://github.com/tobiasherzke/travis-buildenv/releases/download/20190713224935-0eef861/openMHA_dependencies_homebrew3.tar.gz
+  - curl -O -L https://github.com/tobiasherzke/travis-buildenv/releases/download/20190713224935-0eef861/openMHA_dependencies_homebrew1.tar.gz
+  - curl -O -L https://github.com/tobiasherzke/travis-buildenv/releases/download/20190713224935-0eef861/openMHA_dependencies_homebrew2.tar.gz
+  - curl -O -L https://github.com/tobiasherzke/travis-buildenv/releases/download/20190713224935-0eef861/openMHA_dependencies_homebrew3.tar.gz
   - sudo tar xzf openMHA_dependencies_homebrew1.tar.gz -C /
   - sudo tar xzf openMHA_dependencies_homebrew2.tar.gz -C /
   - sudo tar xzf openMHA_dependencies_homebrew3.tar.gz -C /
